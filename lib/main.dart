@@ -1,3 +1,4 @@
+import 'package:animations_demo/screens/animationcontroller_screen.dart';
 import 'package:animations_demo/screens/tween_animation_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -22,6 +23,7 @@ class MyApp extends StatelessWidget {
         '/': (ctx) => const MyHomePage(title: 'Animation Demo'),
         ImplicitlyAnimationScreen.routeName: (ctx) => const ImplicitlyAnimationScreen(),
         TweenAnimationScreen.routeName: (context) => const TweenAnimationScreen(),
+        AnimationControllerScreen.routeName: (context) => const AnimationControllerScreen(),
       },
     );
   }
@@ -47,6 +49,7 @@ class _MyHomePageState extends State<MyHomePage> {
           child: CustomListTile([
             Item('Implicitly Animation', Icon(Icons.sunny)),
             Item('Tween Animation', Icon(Icons.cloud)),
+            Item('AnimationController', Icon(Icons.bolt)),
           ]),
         ));
   }
