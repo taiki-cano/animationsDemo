@@ -10,7 +10,11 @@ class ImplicitlyAnimationScreen extends StatefulWidget {
 }
 
 class _ImplicitlyAnimationScreenState extends State<ImplicitlyAnimationScreen> {
+  final random = Random();
+  double _width = 200;
+  Color _color = Colors.red;
   bool _bigger = true;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,16 +29,24 @@ class _ImplicitlyAnimationScreenState extends State<ImplicitlyAnimationScreen> {
             AnimatedContainer(
               decoration: BoxDecoration(
                 gradient: RadialGradient(
-                    colors: const [Colors.purple, Colors.transparent],
+                    colors: [_color, Colors.transparent],
+                    // colors: const [Colors.purple, Colors.transparent],
                     stops: [_bigger ? 0.2 : 0.5, 1.0]),
               ),
-              width: _bigger ? 100 : 400,
-              duration: const Duration(milliseconds: 1000),
-              curve: Curves.easeInOutQuint,
+              width: _width,
+              duration: const Duration(milliseconds: 500),
+              curve: Curves.easeInOutCubic,
               child: Image.asset('assets/witch.png'),
             ),
             ElevatedButton(
-              onPressed: () => setState(() => _bigger = !_bigger),
+              onPressed: () {
+                setState(() {
+                  _bigger = !_bigger;
+                  _width = (random.nextInt(300) + 150).toDouble();
+                  _color = Color.fromRGBO(
+                      random.nextInt(128), random.nextInt(128), random.nextInt(128), 1);
+                });
+              },
               child: const Icon(CupertinoIcons.star_fill),
             ),
           ],

@@ -1,3 +1,4 @@
+import 'package:animations_demo/screens/tween_animation_screen.dart';
 import 'package:flutter/material.dart';
 
 import './models/item.dart';
@@ -20,6 +21,7 @@ class MyApp extends StatelessWidget {
       routes: {
         '/': (ctx) => const MyHomePage(title: 'Animation Demo'),
         ImplicitlyAnimationScreen.routeName: (ctx) => const ImplicitlyAnimationScreen(),
+        TweenAnimationScreen.routeName: (context) => const TweenAnimationScreen(),
       },
     );
   }
@@ -44,6 +46,7 @@ class _MyHomePageState extends State<MyHomePage> {
           padding: EdgeInsets.symmetric(horizontal: 20.0),
           child: CustomListTile([
             Item('Implicitly Animation', Icon(Icons.sunny)),
+            Item('Tween Animation', Icon(Icons.cloud)),
           ]),
         ));
   }
