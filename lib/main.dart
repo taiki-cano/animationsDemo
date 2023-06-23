@@ -1,4 +1,5 @@
 import 'package:animations_demo/screens/animationcontroller_screen.dart';
+import 'package:animations_demo/screens/custom_animation_screen.dart';
 import 'package:animations_demo/screens/tween_animation_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -24,25 +25,21 @@ class MyApp extends StatelessWidget {
         ImplicitlyAnimationScreen.routeName: (ctx) => const ImplicitlyAnimationScreen(),
         TweenAnimationScreen.routeName: (context) => const TweenAnimationScreen(),
         AnimationControllerScreen.routeName: (context) => const AnimationControllerScreen(),
+        CustomAnimation.routeName: (context) => const CustomAnimation(),
       },
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
+class MyHomePage extends StatelessWidget {
   const MyHomePage({super.key, required this.title});
   final String title;
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
           backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-          title: Text(widget.title),
+          title: Text(title),
         ),
         body: const Padding(
           padding: EdgeInsets.symmetric(horizontal: 20.0),
@@ -50,6 +47,7 @@ class _MyHomePageState extends State<MyHomePage> {
             Item('Implicitly Animation', Icon(Icons.sunny)),
             Item('Tween Animation', Icon(Icons.cloud)),
             Item('AnimationController', Icon(Icons.bolt)),
+            Item('Custom Animation', Icon(Icons.settings_suggest)),
           ]),
         ));
   }
